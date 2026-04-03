@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label ''
+            customWorkspace 'C:\\jenkins-workspace\\Salim'
+        }
+    }
 
     tools {
         nodejs 'NodeJS'
@@ -19,7 +24,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'set CI=true && npx react-scripts test --testPathPattern=src --watchAll=false'
+                bat 'set CI=true && npm test'
             }
         }
         stage('Deploy') {
