@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'set CI=true && npm test'
+                bat 'set CI=true && npx react-scripts test --testPathPattern=src --watchAll=false'
             }
         }
         stage('Deploy') {
